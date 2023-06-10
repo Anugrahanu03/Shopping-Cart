@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <script src="./main.js"></script>
+  <script src="./main.js" defer></script>
   <link rel="icon" href="./assets/favicon/favicon.png">
   <title>Kartzon</title>
 </head>
+
 <body>
 
+  <!-- Header starts here -->
   <header class="sticky">
 
     <div class=" header container">
       <img src="./assets/favicon/kartzon-logo.png" alt="kartzon" class="logo pointer">
+      
       <nav class="navbar">
-        <ul class="nav-list">
-          <li class="nav-item pointer">Home</li>
-          <li class="nav-item pointer">About</li>
-          <li class="nav-item pointer">Contact</li>
+        <ul class="nav-list" data-visible="false">
+          <li class="nav-item pointer"><a href="Home"></a>Home</li>
+          <li class="nav-item pointer"><a href="About"></a>About</li>
+          <li class="nav-item pointer"><a href="Contact"></a>Contact</li>
         </ul>
-        <div class="shopping-cart pointer">
+        <button class="shopping-cart pointer">
           <img class="shopping-cart_icon" src="./assets/icons/cart.png" alt="cart">
-        </div>
-        <div class="menu pointer">
+        </button>
+        <button class="menu pointer">
           <img class="menu_icon" src="./assets/icons/menu.png" alt="menu toggle">
-        </div>
+        </button>
       </nav>
     </div>
 
   </header>
+  <!-- Header ends here -->
 
+  <!-- Main starts here -->
   <main>
-    
-    <div class="container">
+
+    <div class="container-grid">
       <div class="shopping-grid">
         <div class="item">
           <div class="item-image"><img src="./assets/items/bag.png" alt=""></div>
@@ -76,6 +82,51 @@
     </div>
 
   </main>
+  <!-- Main ends here -->
+
+  <!-- Footer starts here -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-main">
+
+        <div class="form">
+          <h4>To get frequent deals and offers.</h4>
+          <form action="">
+            <img class="form-submit" src="./assets/icons/paper-plane-solid.svg" alt="">
+            <input type="email" name="email" id="email" class="form-input" placeholder="Email">
+          </form>
+        </div>
+
+        <img class="footer-main_img" src="./assets/footer.png" alt="">
+
+      </div>
+
+      <div class="footer-links">
+        <div class="caption">
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero, nobis.</p>
+        </div>
+        <div class="policy">
+          <a href=""><p>Terms and Conditions</p></a>
+          <a href=""><p>Privacy Policy</p></a>
+          <a href=""><p>Cookie Policy</p></a>
+        </div>
+        <div class="socials">
+          <p><span>Let's chat!</h4>
+          </p>
+          <div class="social-links">
+            <a href="#"><img src="./assets/icons/square-facebook.svg" alt=""></a>
+            <a href="#"><img src="./assets/icons/square-twitter.svg" alt=""></a>
+            <a href="#"><img src="./assets/icons/square-instagram.svg" alt=""></a>
+            <a href="#"><img src="./assets/icons/linkedin.svg" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  <!-- Footer starts here -->
 
 </body>
+
 </html>
