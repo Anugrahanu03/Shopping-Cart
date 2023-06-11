@@ -1,7 +1,7 @@
 const itemTable =
   [
     [
-      "101",
+      "101", //primary-key
       {
         id: "101",
         name: "Camera Bag",
@@ -24,20 +24,20 @@ const itemTable =
       "103",
       {
         id: "103",
-        name:"fan",
-        oldPrice:70,
-        currPrice:49,
-        img:"fan.png"
+        name: "fan",
+        oldPrice: 70,
+        currPrice: 49,
+        img: "fan.png"
       }
     ],
     [
       "104",
       {
         id: "104",
-        name:"camera",
-        oldPrice:"",
-        currPrice:299,
-        img:"camera.png"
+        name: "camera",
+        oldPrice: "",
+        currPrice: 299,
+        img: "camera.png"
       }
     ],
     [
@@ -54,14 +54,14 @@ const itemTable =
       "106",
       {
         id: "106",
-        name:" shirt",
+        name: " shirt",
         oldPrice: "",
         currPrice: 49,
         img: "shirt.jpg"
       }
     ],
     [
-      "102",
+      "107",
       {
         id: "107",
         name: "Football",
@@ -73,3 +73,8 @@ const itemTable =
   ]
 
 const dataItemMap = new Map(itemTable);
+
+
+function GetItemById(id) {
+  return dataItemMap.get(id);
+}
