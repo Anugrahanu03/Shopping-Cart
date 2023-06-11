@@ -18,6 +18,7 @@
 
 html {
   color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
 img {
@@ -83,21 +84,26 @@ header {
   margin: 0;
   padding: 0;
 }
-
+.nav-list a{
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+}
 
 .shopping-cart,
 .menu {
   background: none;
   border: none;
+  position: relative;
 }
 
 .shopping-cart_icon {
-  width: clamp(20px, 7vw, 35px)
+  width: clamp(20px, 7vw, 35px);
 }
 
 .menu {
   display: none;
-  width: clamp(20px, 80vw, 40px);
+  width: clamp(20px, 10vw, 60px);
   align-self: end;
   z-index: 9999;
 }
@@ -107,10 +113,23 @@ header {
 .menu:hover,
 .menu:focus,
 .shopping-cart_icon:hover,
-.shopping-cart_icon:focus {
+.shopping-cart_icon:focus{
   scale: 1.1;
 }
 
+.shopping-cart::after{
+  content: attr(data-cart-items);
+  position: absolute;
+  top: 0px;
+  right: -5px;
+  width: 20px;
+  aspect-ratio: 1;
+  background-color: red;
+  border-radius: .1rem;
+  display: grid;
+  place-content: center;
+  font-size: .7rem;
+}
 /* Header End */
 
 /* ==================*/
@@ -136,6 +155,7 @@ header {
 }
 
 .item-name {
+  text-transform: capitalize;
   font-weight: 400;
   font-size: 1.5rem;
   /* padding: 1rem; */
@@ -158,6 +178,7 @@ header {
 
 .item-image:hover>img {
   cursor: pointer;
+  transition: scale 500ms ease-in-out;
   scale: 1.1;
 }
 
@@ -171,8 +192,8 @@ header {
 }
 
 .old-price {
-  font-size: .8125rem;
-  font-weight: 100;
+  font-size: .875rem;
+  font-weight: 300;
   text-decoration: line-through solid #fff 1px;
   padding-inline-end: .5rem;
   opacity: .5;
@@ -185,8 +206,7 @@ header {
   box-shadow: 0px 1px 20px 2px rgba(0, 0, 0, 0.1);
 }
 
-.cart-btn:hover,
-.cart-btn:focus {
+.cart-btn:hover {
   /* background-color: var(--bg-dark); */
   scale: 1.1;
   cursor: pointer;
@@ -215,7 +235,9 @@ header {
 }
 
 .footer-main_img {
-  width: min(400px, 40%)
+  width: min(400px, 40%);
+  pointer-events: none;
+  user-select: none;
 }
 
 .form {
@@ -245,7 +267,7 @@ form {
   outline: none;
   border: 0;
   background-color: transparent;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   width: 100%;
   color: var(--clr-light);
 }

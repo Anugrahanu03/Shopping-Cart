@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="./main.js" defer></script>
+  <script src="./database.js"></script>
   <link rel="icon" href="./assets/favicon/favicon.png">
   <title>Kartzon</title>
 </head>
@@ -21,12 +22,12 @@
       
       <nav class="navbar">
         <ul class="nav-list" data-visible="false">
-          <li class="nav-item pointer"><a href="Home"></a>Home</li>
-          <li class="nav-item pointer"><a href="About"></a>About</li>
-          <li class="nav-item pointer"><a href="Contact"></a>Contact</li>
+          <li class="nav-item pointer"><a href="#">Home</a></li>
+          <li class="nav-item pointer"><a href="#">About</a></li>
+          <li class="nav-item pointer"><a href="#footer">Contact</a></li>
         </ul>
-        <button class="shopping-cart pointer">
-          <img class="shopping-cart_icon" src="./assets/icons/cart.png" alt="cart">
+        <button class="shopping-cart pointer" data-cart-items = "0" data-shopping-cart>
+          <a href="./cart.html"><img class="shopping-cart_icon" src="./assets/icons/cart.png" alt="cart"></a>
         </button>
         <button class="menu pointer">
           <img class="menu_icon" src="./assets/icons/menu.png" alt="menu toggle">
@@ -42,42 +43,12 @@
 
     <div class="container-grid">
       <div class="shopping-grid">
-        <div class="item">
+        <!-- <div class="item">
           <div class="item-image"><img src="./assets/items/bag.png" alt=""></div>
           <h3 class="item-name">Camera Bag</h3>
           <p class="price"><span class="old-price">200$</span>99$</p>
           <button class="cart-btn">Add to Cart</button>
-        </div>
-        <div class="item">
-          <div class="item-image"><img src="./assets/items/ball.png" alt=""></div>
-          <h3 class="item-name">Football</h3>
-          <p class="price"><span class="old-price">200$</span>99$</p>
-          <button class="cart-btn">Add to Cart</button>
-        </div>
-        <div class="item">
-          <div class="item-image"><img src="./assets/items/camera.png" alt=""></div>
-          <h3 class="item-name">Camera Bag</h3>
-          <p class="price"><span class="old-price">200$</span>99$</p>
-          <button class="cart-btn">Add to Cart</button>
-        </div>
-        <div class="item">
-          <div class="item-image"><img src="./assets/items/fan.png" alt=""></div>
-          <h3 class="item-name">Camera Bag</h3>
-          <p class="price"><span class="old-price">200$</span>99$</p>
-          <button class="cart-btn">Add to Cart</button>
-        </div>
-        <div class="item">
-          <div class="item-image"><img src="./assets/items/jacket.png" alt=""></div>
-          <h3 class="item-name">Camera Bag</h3>
-          <p class="price"><span class="old-price">200$</span>99$</p>
-          <button class="cart-btn">Add to Cart</button>
-        </div>
-        <div class="item">
-          <div class="item-image"><img src="./assets/items/shirt.jpg" alt=""></div>
-          <h3 class="item-name">Camera Bag</h3>
-          <p class="price"><span class="old-price">200$</span>99$</p>
-          <button class="cart-btn">Add to Cart</button>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -85,7 +56,7 @@
   <!-- Main ends here -->
 
   <!-- Footer starts here -->
-  <footer class="footer">
+  <footer class="footer" id ="footer">
     <div class="container">
 
       <div class="footer-main">
@@ -93,7 +64,7 @@
         <div class="form">
           <h4>To get frequent deals and offers.</h4>
           <form action="">
-            <img class="form-submit" src="./assets/icons/paper-plane-solid.svg" alt="">
+            <img class="form-submit pointer" src="./assets/icons/paper-plane-solid.svg" alt="">
             <input type="email" name="email" id="email" class="form-input" placeholder="Email">
           </form>
         </div>
