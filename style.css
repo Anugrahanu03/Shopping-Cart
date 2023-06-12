@@ -298,14 +298,17 @@ form {
 /*       Utility     */
 /* ==================*/
 
-
-
 .pointer {
   cursor: pointer;
 }
 
 .shadow {
   box-shadow: 0px 1px 20px 2px rgb(0, 0, 0, .3);
+}
+
+.non-clickable{
+  background-color: #FF5E0E;
+  pointer-events: none;
 }
 
 /* ==================*/
