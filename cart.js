@@ -1,11 +1,14 @@
 
 const itemsInCart = JSON.parse(localStorage.getItem("cart")) || [];
-console.log(itemsInCart);
+// console.log(itemsInCart);
 
+MenuToggle();
 IsCartEmpty();
 LoadCart();
+QuantityChange();
 CalculateTotal();
 Checkout();
+RemoveItem();
 
 
 function IsCartEmpty(){
@@ -21,24 +24,23 @@ function IsCartEmpty(){
   }
 }
 
-//Need to add cart empty message and goto home
-
-const qtyBtn = document.querySelectorAll(".qty-btn");
-qtyBtn.forEach(button => {
-  button.addEventListener('click', (e) => {
-    const qty = e.target;
-    // console.log(qty.parentElement.childNodes[1].innerText)
-    if (qty.dataset.operation === "1" && qty.parentElement.childNodes[1].innerText < 100) {
-      const value = ++qty.parentElement.childNodes[1].innerText;
-      UpdateQuantity(qty, value);
-    } else if (qty.dataset.operation === "-1" && qty.parentElement.childNodes[1].innerText > 1) {
-      const value = --qty.parentElement.childNodes[1].innerText;
-      UpdateQuantity(qty, value);
-    }
-    CalculateTotal();
+function QuantityChange(){
+  const qtyBtn = document.querySelectorAll(".qty-btn");
+  qtyBtn.forEach(button => {
+    button.addEventListener('click', (e) => {
+      const qty = e.target;
+      // console.log(qty.parentElement.childNodes[1].innerText)
+      if (qty.dataset.operation === "1" && qty.parentElement.childNodes[1].innerText < 100) {
+        const value = ++qty.parentElement.childNodes[1].innerText;
+        UpdateQuantity(qty, value);
+      } else if (qty.dataset.operation === "-1" && qty.parentElement.childNodes[1].innerText > 1) {
+        const value = --qty.parentElement.childNodes[1].innerText;
+        UpdateQuantity(qty, value);
+      }
+      CalculateTotal();
+    })
   })
-})
-
+}
 
 function LoadCart() {
 
@@ -59,24 +61,13 @@ function LoadCart() {
     </div>
     <p class = "item-price">${response.currPrice}</p>
     <p class = "item-qty"><span class="qty-btn minus" data-operation = "-1">-</span><span class = "qty-value">${item.qty}</span><span class="qty-btn plus" data-operation = "1">+</span></p>
-    <p class = "item-total">${response.currPrice * item.qty}$</p>`
+    <p class = "item-total">${response.currPrice * item.qty}$</p>
+    <p class = "remove-item" aria-label = "remove item">X</p>`
     // console.log(newItemElement);
     cartGrid.append(newItemElement);
   });
 }
 
-function Checkout() {
-  const total = document.querySelector(".total").innerText;
-  if (total <= 0) return;
-
-  const checkoutButton = document.querySelector(".checkout-btn");
-  checkoutButton.addEventListener('click', () => {
-    alert("Thank you for your order!")
-    //Clear the cart
-    localStorage.removeItem("cart");
-    IsCartEmpty();
-  })
-}
 
 function CalculateTotal() {
 
@@ -94,7 +85,48 @@ function CalculateTotal() {
   document.querySelector(".total").innerText = cartTotal + " $";
 }
 
-MenuToggle();
+function Checkout() {
+  const total = document.querySelector(".total").innerText;
+  if (total <= 0) return;
+
+  const checkoutButton = document.querySelector(".checkout-btn");
+  checkoutButton.addEventListener('click', () => {
+    alert("Thank you for your order!")
+    //Clear the cart
+    localStorage.removeItem("cart");
+    IsCartEmpty();
+  })
+}
+
+function UpdateQuantity(element, qty) {
+
+  const itemId = element.closest("[data-item-id]").getAttribute("data-item-id");
+  const itemIndex = itemsInCart.findIndex((item)=>{
+    return item.id === itemId;
+  });
+  itemsInCart[itemIndex].qty = qty;
+  localStorage.setItem("cart", JSON.stringify(itemsInCart));
+}
+
+
+function RemoveItem(){
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || []
+  const removeBtn = document.querySelectorAll(".remove-item");
+  removeBtn.forEach(button => {
+    button.addEventListener('click', (e) => {
+      const item = e.target.parentElement;
+      const itemId = item.dataset.itemId;
+      const itemIndex = itemsInCart.findIndex((x)=>{
+        return x.id === itemId;
+      });
+      cartItems.splice(itemIndex, 1);// Remove from database
+      localStorage.setItem("cart", JSON.stringify(cartItems));
+      item.remove(); // Remove from dom
+      CalculateTotal();
+      IsCartEmpty();
+    })
+  })
+}
 
 function MenuToggle() {
   const navbar = document.querySelector(".nav-list");
@@ -112,16 +144,4 @@ function MenuToggle() {
       menuButton.children[0].src = "./assets/icons/menu.png";
     }
   })
-}
-
-
-
-function UpdateQuantity(element, qty) {
-
-  const itemId = element.closest("[data-item-id]").getAttribute("data-item-id");
-  const itemIndex = itemsInCart.findIndex((item)=>{
-    return item.id === itemId;
-  });
-  itemsInCart[itemIndex].qty = qty;
-  localStorage.setItem("cart", JSON.stringify(itemsInCart));
 }
