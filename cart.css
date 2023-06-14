@@ -185,9 +185,7 @@ main::before {
 
 .qty-btn {
   font-size: 1.2rem;
-  /* background-color: red; */
   color: hsla(0, 0%, 100%, 0.5);
-  ;
   cursor: pointer;
   user-select: none;
 }
@@ -208,7 +206,7 @@ main::before {
   color: #ede7e3;
 }
 
-.cta::after {
+/* .cta::after {
   content: '';
   position: absolute;
   z-index: -1;
@@ -221,23 +219,29 @@ main::before {
   transform-origin: left;
   transition: all 350ms ease-in-out;
   background-color: hsl(175, 100%, 20%);
-}
+} */
 
 
 .cta {
-  /* background-color: #00a896; */
+  background-color: hsl(174, 100%, 30%);
+  border-radius: .5rem;
+  font-weight: 400;
+  font-size: 1rem;
   color: #ede7e3;
-  letter-spacing: 3px;
-  padding: .25em 1em;
+  padding: .5em 1.5em;
   cursor: pointer;
-  position: relative;
+  transition: scale 250ms ease-in-out;
+  /* position: relative; */
 }
 
-.cta:hover.cta::after,
+.cta:hover{
+  scale: 1.1;
+}
+/* .cta:hover.cta::after,
 .cta:focus.cta::after {
   background-color: hsl(174, 100%, 30%);
   right: 0;
-}
+} */
 
 .menu {
   display: none;
