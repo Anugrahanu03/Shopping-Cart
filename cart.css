@@ -124,6 +124,7 @@ main::before {
 .loadout-item {
   border-bottom: 1px solid rgba(255, 255, 255, .1);
   margin-bottom: 2rem;
+  position: relative;
 }
 
 .loadout-item p {
@@ -215,7 +216,7 @@ main::before {
   border-radius: .5rem;
   bottom: 0;
   left: 0;
-  top:0;
+  top: 0;
   right: 100%;
   transform-origin: left;
   transition: all 350ms ease-in-out;
@@ -233,7 +234,7 @@ main::before {
 }
 
 .cta:hover.cta::after,
-.cta:focus.cta::after{
+.cta:focus.cta::after {
   background-color: hsl(174, 100%, 30%);
   right: 0;
 }
@@ -245,12 +246,23 @@ main::before {
   z-index: 9999;
 }
 
+.remove-item {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-block: 1rem;
+  color: orange;
+  font-weight: 900;
+  cursor: pointer;
+}
 
-.hide{
+.hide {
   display: none;
 }
+
 @media (max-width: 700px) {
-  
+
   .loadout {
     border: none;
     /* border: 2px solid red; */
@@ -298,9 +310,11 @@ main::before {
     border-bottom: 1px solid rgba(255, 255, 255, .1);
     height: auto;
   }
+
   .menu {
     display: block;
   }
+
   .nav-list {
     position: fixed;
     right: 0;
@@ -318,10 +332,16 @@ main::before {
     transform: translateX(100%);
     transition: transform 450ms ease-in-out;
   }
-  .nav-list[data-visible="true"]{
+
+  .nav-list[data-visible="true"] {
     transform: translateX(0%);
   }
+
   .show {
     display: block;
+  }
+
+  .remove-item {
+    right: -5px;
   }
 }
