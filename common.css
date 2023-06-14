@@ -21,7 +21,7 @@
 
 header {
   background-color: var(--bg-dark);
-  /* border: 2px solid red; */
+  height: 10vh;
   z-index: 999;
 }
 
@@ -52,30 +52,18 @@ header {
   text-transform: uppercase;
 }
 
-.shopping-cart,
+
 .menu {
   background: none;
   border: none;
   position: relative;
 }
 
-.shopping-cart_icon {
-  width: clamp(20px, 7vw, 35px);
-}
-
-.menu {
-  display: none;
-  width: clamp(20px, 10vw, 60px);
-  align-self: end;
-  z-index: 9999;
-}
 
 .nav-item:hover,
 .nav-item:active,
 .menu:hover,
-.menu:focus,
-.shopping-cart_icon:hover,
-.shopping-cart_icon:focus{
+.menu:focus{
   scale: 1.1;
 }
 
@@ -100,3 +88,4 @@ header {
 .pointer {
   cursor: pointer;
 }
+
