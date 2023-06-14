@@ -46,10 +46,9 @@ function SaveAddedItems(element) {
 
 
 function AddedCartButtonStyles(button) {
-  button.target.style.backgroundColor = "#02c39a"
-  button.target.style.paddingInline = "4em"
+  button.target.style.backgroundColor = "hsl(175, 100%, 20%)"
   button.target.style.pointerEvents = "none"
-  button.target.innerText = "Added"
+  button.target.innerHTML = "&#10004;"
 }
 
 
