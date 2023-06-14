@@ -1,0 +1,102 @@
+
+:root {
+  --ff: 'Outfit', sans-serif;
+  --bg-dark: hsl(0, 0%, 14%);
+  --bg-dark-plus: hsl(0, 0%, 8%);
+  --outline: rgba(255, 255, 255, 0.3);
+  --clr-light: rgba(255, 255, 255, 0.5);
+}
+
+/* Header Start */
+
+.logo {
+  height: 30px;
+  aspect-ratio: 1;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+header {
+  background-color: var(--bg-dark);
+  /* border: 2px solid red; */
+  z-index: 999;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  /* border: 2px solid red; */
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 8vw, 10rem);
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: clamp(1rem, 8vw, 10rem);
+  margin: 0;
+  padding: 0;
+}
+.nav-list a{
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.shopping-cart,
+.menu {
+  background: none;
+  border: none;
+  position: relative;
+}
+
+.shopping-cart_icon {
+  width: clamp(20px, 7vw, 35px);
+}
+
+.menu {
+  display: none;
+  width: clamp(20px, 10vw, 60px);
+  align-self: end;
+  z-index: 9999;
+}
+
+.nav-item:hover,
+.nav-item:active,
+.menu:hover,
+.menu:focus,
+.shopping-cart_icon:hover,
+.shopping-cart_icon:focus{
+  scale: 1.1;
+}
+
+.shopping-cart::after{
+  content: attr(data-cart-items);
+  position: absolute;
+  top: 0px;
+  right: -5px;
+  width: 20px;
+  aspect-ratio: 1;
+  background-color: red;
+  border-radius: .1rem;
+  display: grid;
+  place-content: center;
+  font-size: .7rem;
+}
+/* Header End */
+
+.shadow {
+  box-shadow: 0px 1px 20px 2px rgb(0, 0, 0, .3);
+}
+.pointer {
+  cursor: pointer;
+}

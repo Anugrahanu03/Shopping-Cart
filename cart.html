@@ -6,11 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="cart.css">
   <script src="./cart.js" defer></script>
+  <link rel="stylesheet" href="common.css">
   <script src="./database.js"></script>
   <title>Cart</title>
 </head>
 
 <body>
+
+  <header class="sticky shadow">
+
+    <div class=" header container">
+      <a href="./index.html"><img src="./assets/favicon/kartzon-logo.png" alt="kartzon" class="logo pointer"></a>
+      
+      <nav class="navbar">
+        <ul class="nav-list" data-visible="false">
+          <li class="nav-item pointer"><a href="./index.html">Home</a></li>
+          <li class="nav-item pointer"><a href="#">About</a></li>
+          <li class="nav-item pointer"><a href="#">Contact</a></li>
+        </ul>
+        <button class="menu pointer">
+          <img class="menu_icon" src="./assets/icons/menu.png" alt="menu toggle">
+        </button>
+      </nav>
+    </div>
+
+  </header>
+
   <div class="container">
     <div class="cart">
       <div class="loadout">

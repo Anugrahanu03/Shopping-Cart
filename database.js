@@ -16,7 +16,7 @@ const itemTable =
         id: "102",
         name: "Football",
         oldPrice: "",
-        currPrice: 49,
+        currPrice: 15,
         img: "ball.png"
       }
     ],
@@ -26,7 +26,7 @@ const itemTable =
         id: "103",
         name: "fan",
         oldPrice: 70,
-        currPrice: 49,
+        currPrice: 20,
         img: "fan.png"
       }
     ],
@@ -56,7 +56,7 @@ const itemTable =
         id: "106",
         name: " shirt",
         oldPrice: "",
-        currPrice: 49,
+        currPrice: 50,
         img: "shirt.jpg"
       }
     ],
@@ -66,7 +66,7 @@ const itemTable =
         id: "107",
         name: "Football",
         oldPrice: "",
-        currPrice: 49,
+        currPrice: 30,
         img: "ball.png"
       }
     ]

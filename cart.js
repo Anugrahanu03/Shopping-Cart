@@ -2,14 +2,18 @@
 LoadCart();
 CalculateTotal();
 
+
+//Need to add cart empty message and goto home
+
 const qtyBtn = document.querySelectorAll(".qty-btn");
 qtyBtn.forEach(button => {
   button.addEventListener('click', (e) => {
     const qty = e.target;
-    if (qty.dataset.operation === "1" && qty.parentElement.childNodes[1].data < 100) {
-      ++qty.parentElement.childNodes[1].data;
-    } else if (qty.dataset.operation === "-1" && qty.parentElement.childNodes[1].data > 1) {
-      --qty.parentElement.childNodes[1].data;
+    // console.log(qty.parentElement.childNodes[1].innerText)
+    if (qty.dataset.operation === "1" && qty.parentElement.childNodes[1].innerText < 100) {
+      ++qty.parentElement.childNodes[1].innerText;
+    } else if (qty.dataset.operation === "-1" && qty.parentElement.childNodes[1].innerText > 1) {
+      --qty.parentElement.childNodes[1].innerText;
     }
     CalculateTotal();
   })
@@ -33,7 +37,7 @@ function LoadCart() {
       <p>${response.name}</p>
     </div>
     <p class = "item-price">${response.currPrice}</p>
-    <p class = "item-qty"><span class="qty-btn minus" data-operation = "-1">-</span>${item.qty}<span class="qty-btn plus" data-operation = "1">+</span></p>
+    <p class = "item-qty"><span class="qty-btn minus" data-operation = "-1">-</span><span class = "qty-value">${item.qty}</span><span class="qty-btn plus" data-operation = "1">+</span></p>
     <p class = "item-total">${response.currPrice * item.qty}$</p>`
     // console.log(newItemElement);
     cartGrid.append(newItemElement);
@@ -49,6 +53,7 @@ function Checkout() {
     alert("Thank you for your order!")
 
     //Clear the cart
+    
   })
 }
 

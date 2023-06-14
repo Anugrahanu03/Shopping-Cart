@@ -21,7 +21,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 100vh;
+  /* height: 100vh; */
   /* display: grid; */
   /* place-items: center; */
   font-family: 'Outfit', sans-serif;
@@ -82,6 +82,7 @@ main::before {
 
 .loadout {
   /* border: 2px solid red; */
+  border-right: 1px solid rgba(255, 255, 255, .1);
 }
 
 .loadout-grid {
@@ -142,10 +143,10 @@ main::before {
 
 
 .checkout {
-  /* border: 2px solid red; */
+  align-self: start;
+  height: 35rem;
   display: grid;
   place-content: center;
-  border-left: 1px solid rgba(255, 255, 255, .1);
 }
 
 .cart-total {
@@ -182,7 +183,6 @@ main::before {
 }
 
 .qty-btn {
-  --margin: .7rem;
   font-size: 1.2rem;
   /* background-color: red; */
   color: hsla(0, 0%, 100%, 0.5);
@@ -191,15 +191,17 @@ main::before {
   user-select: none;
 }
 
-.minus {
-  margin-right: var(--margin);
-}
-
-.plus {
-  margin-left: var(--margin);
+.qty-value {
+  margin-inline: .5rem;
 }
 
 @media (max-width: 700px) {
+
+  .loadout{
+    border: none;
+    /* border: 2px solid red; */
+    /* text-align: center; */
+  }
 
   .loadout-header>h3 {
     font-size: 1rem;
@@ -211,10 +213,24 @@ main::before {
     font-weight: 100;
   }
 
+  .item-image {
+    margin: 0 auto;
+  }
+
   .cart {
     /* width: 100%; */
     grid-template-columns: auto;
-    padding: 1rem;
+    padding: 0rem;
+  }
+
+  .table {
+    grid-template-columns: repeat(4, minmax(20px, 1fr));
+    justify-items: center;
+    text-align: center;
+  }
+
+  .table :first-child {
+    grid-column: auto;
   }
 
   .table p {
@@ -224,6 +240,8 @@ main::before {
   .checkout {
     grid-row: 1;
     border-left: none;
+    padding-bottom: 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, .1);
+    height: auto;
   }
 }
