@@ -116,10 +116,13 @@ function RemoveItem(){
     button.addEventListener('click', (e) => {
       const item = e.target.parentElement;
       const itemId = item.dataset.itemId;
-      const itemIndex = itemsInCart.findIndex((x)=>{
+      const itemIndex = cartItems.findIndex((x)=>{
         return x.id === itemId;
       });
+      console.log(cartItems)
+      console.log(itemIndex)
       cartItems.splice(itemIndex, 1);// Remove from database
+      console.log(cartItems)
       localStorage.setItem("cart", JSON.stringify(cartItems));
       item.remove(); // Remove from dom
       CalculateTotal();
